@@ -10,24 +10,15 @@
 
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        int curVal = root.val;
+        if(root == null)
+            return null;
         
-        if( p.val <= curVal && q.val <= curVal ) {
-            if( p.val == curVal || q.val == curVal)
-                return root;
+        if(root.val > p.val && root.val > q.val)
             return lowestCommonAncestor(root.left, p, q);
-        }
         
-        if(p.val >= curVal && q.val >= curVal) {
-            if( p.val == curVal || q.val == curVal)
-                return root;
-            
+        if(root.val < p.val && root.val < q.val)
             return lowestCommonAncestor(root.right, p, q);
-        }
         
-        if( (p.val >= curVal && q.val <= curVal) || ( p.val <= curVal && q.val >= curVal ))
-           return root;
-           
         return root;
     }
 }
