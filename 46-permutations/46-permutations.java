@@ -1,7 +1,9 @@
 class Solution {
     
     private static void dfs(List<List<Integer>> res, int[] nums, boolean[] used, ArrayList<Integer> path){
+        // identified state
         if(path.size() == nums.length){
+            // report state
             res.add(new ArrayList<Integer>(path));
             return;
         }
@@ -10,11 +12,13 @@ class Solution {
             if(used[i])
                 continue;
             
+            // make move
             path.add(nums[i]);
             used[i] = true;
             
             dfs(res, nums, used, path);
             
+            // backtracking
             path.remove(path.size()-1);
             used[i] = false;
         }
