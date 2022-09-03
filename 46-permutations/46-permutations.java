@@ -6,7 +6,7 @@ class Solution {
             return;
         }
         
-        for(int i=0; i < nums.length; i++) {
+        for(int i=0; i < used.length; i++) {
             if(used[i])
                 continue;
             
