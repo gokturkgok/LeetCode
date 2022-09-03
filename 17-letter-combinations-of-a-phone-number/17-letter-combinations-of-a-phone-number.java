@@ -1,5 +1,6 @@
 class Solution {
     
+    // Time complexity: O(4^N), Space Complexity: O(N)
     
     private static final Map<Character, char[]> KEYBOARD = Map.of(
         '2', "abc".toCharArray(),
@@ -15,6 +16,7 @@ class Solution {
     
     private static void dfs(List<String> res, char[] digits, StringBuilder path) {
         if(path.length()==digits.length) {
+            // report state
             res.add(path.toString());
             return;
         }
@@ -22,8 +24,10 @@ class Solution {
         char next_digit = digits[path.length()];
         
         for(char letter : KEYBOARD.get(next_digit)) {
+            // make move
             path.append(letter);
             dfs(res, digits, path);
+            // backtracking
             path.deleteCharAt(path.length()-1);
         }
     }
