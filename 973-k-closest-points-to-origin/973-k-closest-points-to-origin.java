@@ -9,7 +9,7 @@ class Solution {
             }
             
             private int distanceToOrigin(int [] point) {
-                return (int) point[0]*point[0] + point[1]*point[1];
+                return point[0]*point[0] + point[1]*point[1];
             }
         };
         
